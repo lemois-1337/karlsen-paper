@@ -35,4 +35,4 @@ your loved ones.
 
 Please consider a donation for Kaspa paper wallet team: [kaspa:qr4u3xjnsn9vyfeaa5u8qpkmhkxptajt2nlx8n8tx86kmwqczh6m24sqes5z9](https://explorer.kaspa.org/addresses/kaspa:qr4u3xjnsn9vyfeaa5u8qpkmhkxptajt2nlx8n8tx86kmwqczh6m24sqes5z9)
 
-Please consider a donation for Karlsen explorer team: [karlsen:qqe3p64wpjf5y27kxppxrgks298ge6lhu6ws7ndx4tswzj7c84qkjlrspcuxw](https://explorer.karlsencoin.com/addresses/karlsen:qqe3p64wpjf5y27kxppxrgks298ge6lhu6ws7ndx4tswzj7c84qkjlrspcuxw)
+Please consider a donation for Karlsen paper wallet team: [karlsen:qqe3p64wpjf5y27kxppxrgks298ge6lhu6ws7ndx4tswzj7c84qkjlrspcuxw](https://explorer.karlsencoin.com/addresses/karlsen:qqe3p64wpjf5y27kxppxrgks298ge6lhu6ws7ndx4tswzj7c84qkjlrspcuxw)
