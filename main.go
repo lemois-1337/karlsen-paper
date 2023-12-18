@@ -7,8 +7,8 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/kaspanet/kaspad/domain/dagconfig"
-	"github.com/svarogg/kaspaper/kaspaperlib"
+	"github.com/karlsen-network/karlsend/domain/dagconfig"
+	"github.com/karlsen-network/karlsen-paper/paper"
 )
 
 func main() {
@@ -18,7 +18,7 @@ func main() {
 	}
 	filename := os.Args[1]
 
-	wallet, err := kaspaperlib.NewAPI(&dagconfig.MainnetParams).GenerateWallet()
+	wallet, err := paper.NewAPI(&dagconfig.MainnetParams).GenerateWallet()
 	if err != nil {
 		printErrorAndExit(err)
 	}
@@ -41,5 +41,5 @@ func printErrorAndExit(err error) {
 }
 
 func printUsage() {
-	fmt.Println("Usage: kaspaper [filename.html]")
+	fmt.Println("Usage: karlsen-paper [filename.html]")
 }

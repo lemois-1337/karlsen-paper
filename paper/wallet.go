@@ -1,4 +1,4 @@
-package kaspaperlib
+package paper
 
 import (
 	"fmt"
@@ -6,15 +6,15 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/kaspanet/kaspad/cmd/kaspawallet/keys"
-	"github.com/kaspanet/kaspad/cmd/kaspawallet/libkaspawallet"
-	"github.com/kaspanet/kaspad/domain/dagconfig"
+	"github.com/karlsen-network/karlsend/cmd/karlsenwallet/keys"
+	"github.com/karlsen-network/karlsend/cmd/karlsenwallet/libkaspawallet"
+	"github.com/karlsen-network/karlsend/domain/dagconfig"
 	"github.com/skip2/go-qrcode"
-	"github.com/svarogg/kaspaper/model"
+	"github.com/karlsen-network/karlsen-paper/model"
 )
 
-// Make sure we implement model.KaspaperWallet
-var _ model.KaspaperWallet = &wallet{}
+// Make sure we implement model.PaperWallet
+var _ model.PaperWallet = &wallet{}
 
 type wallet struct {
 	dagParams *dagconfig.Params
@@ -23,7 +23,7 @@ type wallet struct {
 	password  string
 }
 
-func newWallet(dagParams *dagconfig.Params, mnemonic string) (model.KaspaperWallet, error) {
+func newWallet(dagParams *dagconfig.Params, mnemonic string) (model.PaperWallet, error) {
 	mnemonicString := &model.MnemonicString{}
 	copy(mnemonicString[:], strings.Split(mnemonic, " ")) // We assume it splits to 24 words
 

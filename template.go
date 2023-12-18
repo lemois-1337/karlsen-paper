@@ -6,7 +6,7 @@ import (
 	"encoding/base64"
 	"text/template"
 
-	"github.com/svarogg/kaspaper/model"
+	"github.com/karlsen-network/karlsen-paper/model"
 )
 
 //go:embed template.html
@@ -18,7 +18,7 @@ type walletTemplate struct {
 	AddressQR string
 }
 
-func renderWallet(wallet model.KaspaperWallet) (string, error) {
+func renderWallet(wallet model.PaperWallet) (string, error) {
 	walletTemplate, err := walletToWalletTempalte(wallet)
 	if err != nil {
 		return "", err
@@ -28,7 +28,7 @@ func renderWallet(wallet model.KaspaperWallet) (string, error) {
 		"sub": func(str string, i, j int) string { return str[i:j] },
 	}
 
-	tmpl := template.Must(template.New("kaspaper").Funcs(funcMap).Parse(templateString))
+	tmpl := template.Must(template.New("karlsen-paper").Funcs(funcMap).Parse(templateString))
 
 	buf := &bytes.Buffer{}
 	err = tmpl.Execute(buf, walletTemplate)
@@ -39,7 +39,7 @@ func renderWallet(wallet model.KaspaperWallet) (string, error) {
 	return buf.String(), nil
 }
 
-func walletToWalletTempalte(wallet model.KaspaperWallet) (*walletTemplate, error) {
+func walletToWalletTempalte(wallet model.PaperWallet) (*walletTemplate, error) {
 	const addressIndex = 0
 
 	address, err := wallet.Address(addressIndex)
