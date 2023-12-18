@@ -87,28 +87,38 @@
                 font-size: 20pt
             }
 
-            .QR {
-                float:left;
-            }
-
-            .addr {
-                float: right;
-                font-family: monospace;
-                font-size: 30pt;
-                margin-top: 10px;
-                margin-right: 50px;
-                text-align: right;
+            p.address {
+                font-family: 'Courier New', Courier, monospace;
+                font-weight: bolder;
+                word-wrap: break-word;
             }
 
             #QR {
                 outline: 5px solid black;
                 outline-offset: -15px;
-                margin-left: 50px;
+                margin-left: 60px;
+                width: 224px;
+            }
+
+            .QR-item {
+                padding-right: 80px;
+                float: left;  
+                margin-top: 5px;
+            }
+
+            .QR-header {
+                margin-left: 70px;
+                font-size: 20px;
             }
 
             #url {
                 margin-top : -45px;
                 text-align: center;
+            }
+
+            .container {
+                float: left;
+                width: 100%;
             }
             
         </style>
@@ -146,7 +156,10 @@
                 <strong>https://github.com/karlsen-network/karlsen-paper</strong>
             </p>
             <div>
-                <p style="font-family: 'Courier New', Courier, monospace; font-weight: bolder;"> {{.Address}}</p>
+                <p class="address"> 
+                    {{.Address}}
+                    {{.KPubKey}}
+                </p>
                 <h2>Private Key (KEEP PRIVATE!)</h2>
                 <ol id="mnemonic">
                     {{range .Mnemonic}}
@@ -164,15 +177,19 @@
                          alt="K" width="70" style="vertical-align:middle; margin-bottom: 5px; transform: scaleX(-1);" />
                 </h1>
                 <p id = "url">https://github.com/karlsen-network/karlsen-paper</p>
-                <div class = "QR">
-                    <img id = "QR" src="data:image/png;base64, {{.AddressQR}}" alt="Address QR" />
-                </div>
-                <div class="addr">         
-                    {{sub .Address 0 18}}<br>
-                    {{sub .Address 18 30}}<br>
-                    {{sub .Address 30 42}}<br>
-                    {{sub .Address 42 54}}<br>
-                    {{sub .Address 54 67}}<br>
+                <div class='container'>
+                    <div class = "QR-item">
+                        <span class="QR-header">Public Address</span>
+                        <div>
+                            <img id = "QR" src="data:image/png;base64, {{.AddressQR}}" alt="Address QR" />
+                        </div>
+                    </div>
+                    <div class = "QR-item">
+                        <span class="QR-header">Extended Public Key</span>
+                        <div>
+                            <img id = "QR" src="data:image/png;base64, {{.KPubKeyQR}}" alt="Extended Address QR" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </page>

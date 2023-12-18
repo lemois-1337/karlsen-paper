@@ -27,7 +27,10 @@ func newWallet(dagParams *dagconfig.Params, mnemonic string) (model.PaperWallet,
 	mnemonicString := &model.MnemonicString{}
 	copy(mnemonicString[:], strings.Split(mnemonic, " ")) // We assume it splits to 24 words
 
-	password := generatePassword()
+	password, err := generatePassword()
+	if err != nil {
+		return nil, err
+	}
 
 	keysFile, err := keys.NewFileFromMnemonic(dagParams, mnemonicString.String(), password)
 	if err != nil {
@@ -55,11 +58,25 @@ func (w *wallet) Address(index int) (string, error) {
 	return address.String(), nil
 }
 
+func (w *wallet) KPubKey() (string) {
+	return w.keysFile.ExtendedPublicKeys[0]
+}
+
 func (w *wallet) AddressQR(index int) ([]byte, error) {
 	address, err := w.Address(index)
 	if err != nil {
 		return nil, err
 	}
+
+	qr, err := qrcode.Encode(address, qrcode.High, 256)
+	if err != nil {
+		return nil, errors.WithStack(err)
+	}
+	return qr, nil
+}
+
+func (w *wallet) KPubKeyQR() ([]byte, error) {
+	address := w.KPubKey()
 
 	qr, err := qrcode.Encode(address, qrcode.High, 256)
 	if err != nil {
