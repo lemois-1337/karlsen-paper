@@ -1,4 +1,4 @@
-package kaspaperlib
+package paper
 
 import (
 	"github.com/kaspanet/kaspad/cmd/kaspawallet/libkaspawallet"

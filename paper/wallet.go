@@ -1,4 +1,4 @@
-package kaspaperlib
+package paper
 
 import (
 	"fmt"
