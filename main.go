@@ -7,7 +7,7 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/kaspanet/kaspad/domain/dagconfig"
+	"github.com/karlsen-network/karlsend/domain/dagconfig"
 	"github.com/karlsen-network/karlsen-paper/paper"
 )
 
@@ -41,5 +41,5 @@ func printErrorAndExit(err error) {
 }
 
 func printUsage() {
-	fmt.Println("Usage: kaspaper [filename.html]")
+	fmt.Println("Usage: karlsen-paper [filename.html]")
 }

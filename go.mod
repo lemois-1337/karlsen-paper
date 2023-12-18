@@ -1,9 +1,9 @@
-module github.com/svarogg/kaspaper
+module github.com/karlsen-network/karlsen-paper
 
 go 1.17
 
 require (
-	github.com/kaspanet/kaspad v0.11.7
+	github.com/karlsen-network/karlsend v1.0.0
 	github.com/pkg/errors v0.9.1
 	github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e
 )

@@ -1,10 +1,10 @@
 package model
 
-type KaspaperAPI interface {
-	GenerateWallet() (KaspaperWallet, error)
+type PaperAPI interface {
+	GenerateWallet() (PaperWallet, error)
 }
 
-type KaspaperWallet interface {
+type PaperWallet interface {
 	Mnemonic() *MnemonicString
 	Address(index int) (string, error)
 	AddressQR(index int) ([]byte, error)
